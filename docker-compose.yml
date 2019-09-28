@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        URL: www.hosturl.com
+    ports:
+      - 8787:8788
+    extra_hosts:
+      - abc.co:192.16.1.1
+    restart: unless-stopped
+    network_mode: bridge
+    user: root
